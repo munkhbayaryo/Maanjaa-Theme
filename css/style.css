@@ -881,8 +881,12 @@ span.wishlist_products_counter_number:empty {
 .woocommerce .list-mode li.product-list .product-details .name {
   font-size: 17px;
   font-weight: 400;
+  clear: inherit;
+  height: auto;
+  overflow: auto;
 }
 .woocommerce .list-mode li.product-list .product-details .name a {
+  font-size: 17px;
   color: #000;
 }
 .woocommerce .list-mode li.product-list .inner-left {
@@ -914,6 +918,9 @@ span.wishlist_products_counter_number:empty {
 .woocommerce .list-mode li.product-list .inner-right .price bdi {
   text-decoration: none;
 }
+.woocommerce .list-mode li.product-list .addcart {
+  display: block;
+}
 
 .woocommerce .grid-mode li.product-list .product-thumb {
   float: left;
@@ -938,17 +945,11 @@ span.wishlist_products_counter_number:empty {
   transform: translateY(-50%);
 }
 .woocommerce .grid-mode li.product-list .product-details .name {
-  font-size: 17px;
-  font-weight: 400;
   height: 50px;
   margin-bottom: 8px;
   overflow: hidden;
   display: block;
   clear: both;
-}
-.woocommerce .grid-mode li.product-list .product-details .name a {
-  color: #000;
-  font-size: 15px;
 }
 .woocommerce .grid-mode li.product-list .addcart {
   display: none;
@@ -966,12 +967,18 @@ span.wishlist_products_counter_number:empty {
   text-decoration: none;
 }
 
+.woocommerce li.product-list .price del {
+  font-size: 16px;
+  font-weight: 400;
+  color: #666;
+}
+
 .product-thumb {
   float: left;
   padding: 20px;
   border: solid 1px #EEE;
   height: 250px;
-  width: 300px;
+  width: 100%;
 }
 .product-thumb .helper {
   display: inline-block;
@@ -989,10 +996,28 @@ span.wishlist_products_counter_number:empty {
   transform: translateY(-50%);
 }
 
-.woocommerce ul.products li.product h3.name a {
+.woocommerce ul.products li.product h3.name {
   font-size: 17px;
   font-weight: 400;
+  height: 50px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  display: block;
+  clear: both;
+}
+
+.woocommerce ul.products li.product h3.name a {
+  font-size: 15px;
+}
+
+.woocommerce ul.products li.product h3.name a {
+  font-size: 15px;
+  font-weight: 400;
   color: #000;
+}
+
+.woocommerce li.product-list .addcart {
+  display: none;
 }
 
 .woocommerce ul.products li.product .button {
@@ -1054,7 +1079,7 @@ span.wishlist_products_counter_number:empty {
   display: block;
   font-weight: 700;
   margin-bottom: 0.5em;
-  font-size: 25px;
+  font-size: 18px;
 }
 
 .woocommerce ul.products li.product a img {

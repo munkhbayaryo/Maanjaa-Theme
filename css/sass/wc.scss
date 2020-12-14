@@ -31,7 +31,11 @@
         .name {
             font-size: 17px;
             font-weight: 400;
+            clear: inherit;
+            height: auto;
+            overflow: auto;
             a {
+                font-size: 17px;
                 color: #000;
             }
         }
@@ -65,7 +69,12 @@
             }
         }
     }
+    .addcart {
+        display: block;
+    }
 }
+
+
 
 .woocommerce .grid-mode li.product-list {
     .product-thumb {
@@ -92,17 +101,11 @@
     }
     .product-details {
         .name {
-            font-size: 17px;
-            font-weight: 400;
             height: 50px;
             margin-bottom: 8px;
             overflow: hidden;
             display: block;
             clear: both;
-            a {
-                color: #000;
-                font-size: 15px;
-            }
         }
     }
     .inner-left {
@@ -128,12 +131,18 @@
     }
 }
 
+.woocommerce li.product-list .price del {
+    font-size: 16px;
+    font-weight: 400;
+    color: #666;
+}
+
 .product-thumb {
     float: left;
     padding: 20px;
     border: solid 1px #EEE;
     height: 250px;
-    width: 300px;
+    width: 100%;
     .helper {
         display: inline-block;
         height: 100%;
@@ -151,10 +160,28 @@
     }
 }
 
-.woocommerce ul.products li.product h3.name a {
+.woocommerce ul.products li.product h3.name {
     font-size: 17px;
     font-weight: 400;
+    height: 50px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    display: block;
+    clear: both;
+}
+
+.woocommerce ul.products li.product h3.name a {
+    font-size: 15px;
+}
+
+.woocommerce ul.products li.product h3.name a {
+    font-size: 15px;
+    font-weight: 400;
     color: #000;
+}
+
+.woocommerce li.product-list .addcart {
+    display: none;
 }
 
 .woocommerce ul.products li.product .button {
@@ -214,7 +241,7 @@
     display: block;
     font-weight: 700;
     margin-bottom: .5em;
-    font-size: 25px;
+    font-size: 18px;
 }
 
 .woocommerce ul.products li.product a img {
