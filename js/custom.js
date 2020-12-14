@@ -7,9 +7,8 @@ $(window).load(function() {
     });
 });
 
-$(document).ready(function(){
-
-  $('.products-wrapper').addClass('grid-mode');
+function gridandlistmode() {
+    $('.products-wrapper').addClass('grid-mode');
 
   var mode = localStorage.getItem('mode');
   
@@ -34,6 +33,11 @@ $(document).ready(function(){
     $('#listview').removeClass('active');
     localStorage.setItem('mode', 'grid-mode');
   });
+}
+
+$(document).ready(function(){
+
+    gridandlistmode();
 
   $('div.brands-list').listnav();
 
