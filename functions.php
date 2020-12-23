@@ -47,6 +47,17 @@ function maanjaa_widgets_init() {
     'before_title'  => '<h3 class="widget-header">',
     'after_title'   => '</h3>',
   ) );
+  register_sidebar(
+    array(
+        'id'            => 'best_sellers',
+        'name'          => __( 'Best Sellers' ),
+        'description'   => __( 'Widget area of Best sellers.' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    )
+);
 }
 add_action( 'widgets_init', 'maanjaa_widgets_init' );
 
@@ -314,4 +325,25 @@ function maanjaa_show_express_shop_term() {
 	        }
     	}
     }
+}
+
+
+
+
+
+
+
+
+add_filter( 'woocommerce_shortcode_products_query', 'woocommerce_shortcode_products_orderby' );
+
+function woocommerce_shortcode_products_orderby( $bs_args ) {
+
+    $standard_array = array('menu_order','title','date','rand','id');
+
+    if( isset( $bs_args['orderby'] ) && !in_array( $bs_args['orderby'], $standard_array ) ) {
+        $bs_args['meta_key'] = $bs_args['orderby'];
+        $bs_args['orderby']  = 'meta_value_num'; 
+    }
+
+    return $bs_args;
 }
