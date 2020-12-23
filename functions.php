@@ -326,24 +326,3 @@ function maanjaa_show_express_shop_term() {
     	}
     }
 }
-
-
-
-
-
-
-
-
-add_filter( 'woocommerce_shortcode_products_query', 'woocommerce_shortcode_products_orderby' );
-
-function woocommerce_shortcode_products_orderby( $bs_args ) {
-
-    $standard_array = array('menu_order','title','date','rand','id');
-
-    if( isset( $bs_args['orderby'] ) && !in_array( $bs_args['orderby'], $standard_array ) ) {
-        $bs_args['meta_key'] = $bs_args['orderby'];
-        $bs_args['orderby']  = 'meta_value_num'; 
-    }
-
-    return $bs_args;
-}
