@@ -20,10 +20,10 @@
                     'orderby' => 'meta_value_num',
                     'meta_key'  => 'total_sales',
                     'order' => 'DESC',
-                    'posts_per_page' => -1,
+                    'posts_per_page' => 8,
                     'date_query' => array(
                         array(
-                            'after' => date( 'Y-m-d', strtotime( '-2 year' ) )
+                            'after' => date( 'Y-m-d', strtotime( '-1 year' ) )
                         ),
                     ),
                     'suppress_filters' => true,
