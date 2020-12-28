@@ -846,6 +846,96 @@ span.wishlist_products_counter_number:empty {
   border-radius: 0;
 }
 
+.with_frm_style {
+  --form-width: 100%;
+  --form-align: left;
+  --direction: ltr;
+  --fieldset: 0px;
+  --fieldset-color: #000000;
+  --fieldset-padding: 0 0 15px 0;
+  --fieldset-bg-color: transparent;
+  --title-size: 40px;
+  --title-color: #444444;
+  --title-margin-top: 10px;
+  --title-margin-bottom: 60px;
+  --form-desc-size: 14px;
+  --form-desc-color: #666666;
+  --form-desc-margin-top: 10px;
+  --form-desc-margin-bottom: 25px;
+  --font: "Roboto", sans-serif;
+  --font-size: 15px;
+  --label-color: #3f4b5b;
+  --weight: normal;
+  --position: none;
+  --align: left;
+  --width: 150px;
+  --required-color: #B94A48;
+  --required-weight: bold;
+  --label-padding: 0 0 3px 0;
+  --description-font-size: 12px;
+  --description-color: #666666;
+  --description-weight: normal;
+  --description-style: normal;
+  --description-align: left;
+  --description-margin: 0;
+  --field-font-size: 14px;
+  --field-height: 40px;
+  --line-height: 40px;
+  --field-width: 100%;
+  --auto-width: 100%;
+  --field-pad: 6px 10px;
+  --field-margin: 20px;
+  --field-weight: normal;
+  --text-color: #555555;
+  --border-color: #BFC3C8;
+  --field-border-width: 1px;
+  --field-border-style: solid;
+  --bg-color: #ffffff;
+  --bg-color-active: #ffffff;
+  --border-color-active: #66afe9;
+  --text-color-error: #444444;
+  --bg-color-error: #ffffff;
+  --border-color-error: #B94A48;
+  --border-width-error: 1px;
+}
+
+.frm_style_formidable-style.with_frm_style .form-field input:not([type=file]):focus, .frm_style_formidable-style.with_frm_style select:focus, .frm_style_formidable-style.with_frm_style textarea:focus, .frm_style_formidable-style.with_frm_style .frm_focus_field input[type=text], .frm_style_formidable-style.with_frm_style .frm_focus_field input[type=password], .frm_style_formidable-style.with_frm_style .frm_focus_field input[type=email], .frm_style_formidable-style.with_frm_style .frm_focus_field input[type=number], .frm_style_formidable-style.with_frm_style .frm_focus_field input[type=url], .frm_style_formidable-style.with_frm_style .frm_focus_field input[type=tel], .frm_style_formidable-style.with_frm_style .frm_focus_field input[type=search], .frm_form_fields_active_style, .frm_style_formidable-style.with_frm_style .frm_focus_field .frm-card-element.StripeElement, .frm_style_formidable-style.with_frm_style .chosen-container-single.chosen-container-active .chosen-single, .frm_style_formidable-style.with_frm_style .chosen-container-active .chosen-choices {
+  background-color: #ffffff;
+  border-color: #EE4036;
+  box-shadow: none;
+}
+
+.frm_style_formidable-style.with_frm_style .frm_compact .frm_dropzone.dz-clickable .dz-message, .frm_style_formidable-style.with_frm_style input[type=submit], .frm_style_formidable-style.with_frm_style .frm_submit input[type=button], .frm_style_formidable-style.with_frm_style .frm_submit button, .frm_form_submit_style, .frm_style_formidable-style.with_frm_style .frm-edit-page-btn {
+  width: auto;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  height: auto;
+  line-height: normal;
+  text-align: center;
+  background: #EE4036;
+  border-width: 1px;
+  border-color: #EE4036;
+  border-style: solid;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: normal;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  text-shadow: none;
+  padding: 10px 20px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-shadow: 0 1px 1px #eeeeee;
+  -webkit-box-shadow: 0 1px 1px #eeeeee;
+  box-shadow: 0 1px 1px #eeeeee;
+  margin: 10px;
+  margin-left: 0;
+  margin-right: 0;
+  vertical-align: middle;
+}
+
 .woocommerce .list-mode li.product-list {
   border-bottom: solid 1px #EEE;
   padding: 0 0 20px !important;
