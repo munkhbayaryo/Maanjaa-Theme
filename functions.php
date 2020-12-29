@@ -326,3 +326,20 @@ function maanjaa_show_express_shop_term() {
     	}
     }
 }
+
+
+function custom_orderBy_meta($orderby) {
+	remove_filter('pre_get_posts','custom_orderBy_meta');
+	global $wpdb;
+	$premiumSellerMetaKey = 598;
+	$premiumSellers = $wpdb->get_results($wpdb->prepare(
+		"SELECT user_id FROM wp_usermeta WHERE meta_key = 'wcfm_membership' and meta_value = %d",598));
+	$userIds = [];
+	if ($premiumSellers) {
+		foreach ($premiumSellers as $key => $value) {
+				array_push($userIds, $value->user_id);
+		}
+		return " CASE WHEN post_author IN (" . implode( ',', $userIds ) .") THEN 1 ELSE 2 END";
+	} else return null;
+}
+add_filter('pre_get_posts','custom_orderBy_meta');
