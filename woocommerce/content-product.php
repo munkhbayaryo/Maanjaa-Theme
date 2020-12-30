@@ -23,7 +23,7 @@ global $premiumSellers;
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
-
+$is_special = 'not';
 if (count($premiumSellers) > 0) {
 
 	$author = get_the_author_meta('ID');
