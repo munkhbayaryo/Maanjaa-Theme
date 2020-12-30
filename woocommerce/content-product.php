@@ -24,12 +24,29 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 
+$premiumSellerId = 598;
+	$premiumSellers = $wpdb->get_results($wpdb->prepare(
+		"SELECT user_id FROM wp_usermeta WHERE meta_key = 'wcfm_membership' and meta_value = %d", $premiumSellerId));
+$userIds = [];
+$is_special = 'not_special';
+
+if ($premiumSellers) {
+	foreach ($premiumSellers as $key => $value) {
+		array_push($userIds, $value->user_id);
+	}
+
+	$author = get_the_author_meta('ID');
+	if (in_array((int)$author, $userIds)) {
+		$is_special = 'yeah_this_is special';
+	}
+}
+
 ?>
 
 <li <?php wc_product_class( 'product-list clearfix', $product ); ?>>
 
 		<div class="inner-left">
-
+		<!-- <?php echo($is_special);?> -->
 			<?php if ( has_post_thumbnail() ) {
 				echo '<div class="product-thumb">'; woocommerce_show_product_loop_sale_flash(); echo '<span class="helper">';
 					echo '<a href="'; the_permalink(); echo '">'; the_post_thumbnail('maanjaa-thumb'); echo '</a>';
