@@ -18,25 +18,16 @@
 defined( 'ABSPATH' ) || exit;
 
 global $product;
-
+global $premiumSellers;
 // Ensure visibility.
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 
-$premiumSellerId = 598;
-	$premiumSellers = $wpdb->get_results($wpdb->prepare(
-		"SELECT user_id FROM wp_usermeta WHERE meta_key = 'wcfm_membership' and meta_value = %d", $premiumSellerId));
-$userIds = [];
-$is_special = 'not_special';
-
-if ($premiumSellers) {
-	foreach ($premiumSellers as $key => $value) {
-		array_push($userIds, $value->user_id);
-	}
+if (count($premiumSellers) > 0) {
 
 	$author = get_the_author_meta('ID');
-	if (in_array((int)$author, $userIds)) {
+	if (in_array((int)$author, $premiumSellers)) {
 		$is_special = 'yeah_this_is special';
 	}
 }

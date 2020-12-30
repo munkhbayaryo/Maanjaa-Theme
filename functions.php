@@ -362,3 +362,20 @@ function custom_product_ordering() {
          
 // add the action 
 add_action( 'woocommerce_before_shop_loop', 'custom_product_ordering', 10, 0 ); 
+
+function initCustomGlobalVariables () {
+	global $wpdb;
+	global $premiumSellers;
+
+	$premiumSellerId = 598;
+	$tempPremiumSellers = $wpdb->get_results($wpdb->prepare(
+		"SELECT user_id FROM wp_usermeta WHERE meta_key = 'wcfm_membership' and meta_value = %d", $premiumSellerId));
+	$userIds = [];
+	if ($tempPremiumSellers) {
+		foreach ($tempPremiumSellers as $key => $value) {
+			array_push($userIds, $value->user_id);
+		}
+	}
+	$premiumSellers = $userIds;
+}
+add_action( 'after_setup_theme', 'initCustomGlobalVariables' );
