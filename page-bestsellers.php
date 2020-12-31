@@ -43,26 +43,7 @@
                     while ( $query ->have_posts() ) : $query ->the_post();
                         ?>
 
-                        <?php
-
-                        global $product;
-                        global $premiumSellers;
-                        // Ensure visibility.
-                        if ( empty( $product ) || ! $product->is_visible() ) {
-                            return;
-                        }
-                        $is_special = false;
-                        if (count($premiumSellers) > 0) {
-
-                            $author = get_the_author_meta('ID');
-                            if (in_array((int)$author, $premiumSellers)) {
-                                $is_special = true;
-                            }
-                        }
-
-                        ?>
-
-                        <li <?php wc_product_class($is_special ? 'product-list paid clearfix best-seller' : 'product-list clearfix best-seller' , $product ); ?>>
+                        <li <?php wc_product_class('product-list clearfix best-seller' , $product ); ?>>
 
                                 <div class="inner-left">
                                     <?php if ( has_post_thumbnail() ) {
