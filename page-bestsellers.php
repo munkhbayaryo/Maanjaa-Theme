@@ -1,16 +1,22 @@
 <?php /* Template Name: Page Bestsellers */ get_header(); ?>
 
-<section class="page-header">
-    <h1><?php the_title(); ?></h1>
-</section>
+<div class="row">
 
-<!-- <?php dynamic_sidebar( 'best_sellers' ); ?> -->
+    <div class="col">
+        <?php dynamic_sidebar( 'best_sellers' ); ?>
+    </div>
+    <div class="col-6 text-center">
+        <h1><?php the_title(); ?></h1>
+    </div>
+    <div class="col">
 
-<?php echo do_shortcode('[br_filters_group group_id=75 berocket_aapf=true]'); ?>
+    </div>
+
+</div>
 
 <div class="woocommerce">
     <div class="products-wrapper grid-mode">
-        <ul class="products columns-4">
+        <ul class="products best-seller columns-4">
             <?php
                 $atts = array();
 
@@ -35,7 +41,70 @@
 
                 if ( $query ->have_posts() ) {
                     while ( $query ->have_posts() ) : $query ->the_post();
-                        wc_get_template_part( 'content', 'product' );
+                        ?>
+
+                        <?php
+
+                        global $product;
+                        global $premiumSellers;
+                        // Ensure visibility.
+                        if ( empty( $product ) || ! $product->is_visible() ) {
+                            return;
+                        }
+                        $is_special = false;
+                        if (count($premiumSellers) > 0) {
+
+                            $author = get_the_author_meta('ID');
+                            if (in_array((int)$author, $premiumSellers)) {
+                                $is_special = true;
+                            }
+                        }
+
+                        ?>
+
+                        <li <?php wc_product_class($is_special ? 'product-list paid clearfix best-seller' : 'product-list clearfix best-seller' , $product ); ?>>
+
+                                <div class="inner-left">
+                                    <?php if ( has_post_thumbnail() ) {
+                                        echo '<div class="product-thumb">'; woocommerce_show_product_loop_sale_flash(); echo '<span class="helper">';
+                                            echo '<a href="'; the_permalink(); echo '">'; the_post_thumbnail('maanjaa-thumb'); echo '</a>';
+                                        echo '</span></div>';
+                                    } ?>
+
+                                    <div class="product-details best-seller">
+                                        <h3 class="name"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
+
+                                        <?php do_action( 'express_shop_title' ); ?>
+                                        
+                                        <?php if($product->get_stock_quantity()>0) {
+                                            echo '<p class="stock-in-loop">'; echo 'Only '; echo $product->get_stock_quantity(); echo ' left in stock - order soon.';  echo '</p>';
+                                            }
+                                        ?>
+
+                                        <div class="rating">
+                                            <?php
+                                                if ($rating_html = wc_get_rating_html( $product->get_average_rating() )) {
+                                                    echo trim( wc_get_rating_html( $product->get_average_rating() ) );
+                                                }
+                                            ?>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="inner-right">
+                                    <div class="inner">
+                                        <div class="price"><?php echo ($product->get_price_html()); ?></div>
+                                        <div class="addcart">
+                                            <?php do_action( 'woocommerce_after_shop_loop_item' ); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                        </li>
+
+
+                        <?php
                     endwhile;
                 } else {
                     echo __( 'No products found.' );

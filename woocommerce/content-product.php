@@ -23,21 +23,20 @@ global $premiumSellers;
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
-$is_special = 'not';
+$is_special = false;
 if (count($premiumSellers) > 0) {
 
 	$author = get_the_author_meta('ID');
 	if (in_array((int)$author, $premiumSellers)) {
-		$is_special = 'yeah_this_is special';
+		$is_special = true;
 	}
 }
 
 ?>
 
-<li <?php wc_product_class( 'product-list clearfix', $product ); ?>>
+<li <?php wc_product_class($is_special ? 'product-list paid clearfix' : 'product-list clearfix' , $product ); ?>>
 
 		<div class="inner-left">
-		<!-- <?php echo($is_special);?> -->
 			<?php if ( has_post_thumbnail() ) {
 				echo '<div class="product-thumb">'; woocommerce_show_product_loop_sale_flash(); echo '<span class="helper">';
 					echo '<a href="'; the_permalink(); echo '">'; the_post_thumbnail('maanjaa-thumb'); echo '</a>';
@@ -45,7 +44,7 @@ if (count($premiumSellers) > 0) {
 			} ?>
 
 			<div class="product-details">
-				<h3 class="name"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+				<h3 class="name"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
 
 				<?php do_action( 'express_shop_title' ); ?>
 				
