@@ -82,14 +82,14 @@
         padding: 20px;
         border: solid 1px #EEE;
         height: 250px;
+        position: relative;
         width: 100%;
         .helper {
-            display: flex;
-            flex-direction: column;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -webkit-flex-direction: column;
-            align-items: stretch;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             height: 100%;
             vertical-align: middle;
             text-align: center;
@@ -160,14 +160,14 @@
     padding: 20px;
     border: solid 1px #EEE;
     height: 250px;
+    position: relative;
     width: 100%;
     .helper {
-        display: flex;
-        flex-direction: column;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: column;
-        align-items: stretch;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
         height: 100%;
         vertical-align: middle;
         text-align: center;
