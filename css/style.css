@@ -1031,9 +1031,6 @@ span.wishlist_products_counter_number:empty {
   max-height: 210px;
   width: auto;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
 }
 .woocommerce .grid-mode li.product-list .product-details .name {
   height: 50px;
@@ -1090,9 +1087,6 @@ span.wishlist_products_counter_number:empty {
   max-height: 210px;
   width: auto;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
 }
 
 .woocommerce ul.products li.product h3.name {
