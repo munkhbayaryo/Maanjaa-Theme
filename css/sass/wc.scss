@@ -84,7 +84,13 @@
         height: 250px;
         width: 100%;
         .helper {
-            display: inline-block;
+            display: flex;
+            display: -webkit-box;
+            flex-direction: column;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            align-items: stretch;
             height: 100%;
             vertical-align: middle;
             text-align: center;
@@ -157,7 +163,13 @@
     height: 250px;
     width: 100%;
     .helper {
-        display: inline-block;
+        display: flex;
+        display: -webkit-box;
+        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        align-items: stretch;
         height: 100%;
         vertical-align: middle;
         text-align: center;
@@ -1454,6 +1466,10 @@ p.wcfm_title, span.wcfm_title {
 #wcfm-main-contentainer .wcfm_membership_box_head .wcfm_membership_price .amount {
     border-color: #000000;
     padding-top: 36px !important;
+}
+
+#wcfm-main-contentainer .wcfm_membership_box_head .wcfm_membership_price .amount {
+    font-size: 22px;
 }
 
 #wcfm-main-contentainer .wcfm_membership_box_body {
