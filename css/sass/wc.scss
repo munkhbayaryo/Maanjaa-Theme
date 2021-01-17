@@ -85,7 +85,6 @@
         width: 100%;
         .helper {
             display: flex;
-            display: -webkit-box;
             flex-direction: column;
             -webkit-box-orient: vertical;
             -webkit-box-direction: normal;
@@ -164,7 +163,6 @@
     width: 100%;
     .helper {
         display: flex;
-        display: -webkit-box;
         flex-direction: column;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;

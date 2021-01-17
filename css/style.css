@@ -1021,7 +1021,6 @@ span.wishlist_products_counter_number:empty {
 }
 .woocommerce .grid-mode li.product-list .product-thumb .helper {
   display: flex;
-  display: -webkit-box;
   flex-direction: column;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -1085,7 +1084,6 @@ span.wishlist_products_counter_number:empty {
 }
 .product-thumb .helper {
   display: flex;
-  display: -webkit-box;
   flex-direction: column;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
