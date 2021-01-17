@@ -1017,15 +1017,10 @@ span.wishlist_products_counter_number:empty {
   padding: 20px;
   border: solid 1px #EEE;
   height: 250px;
-  position: relative;
   width: 100%;
 }
 .woocommerce .grid-mode li.product-list .product-thumb .helper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  display: inline-block;
   height: 100%;
   vertical-align: middle;
   text-align: center;
@@ -1038,6 +1033,7 @@ span.wishlist_products_counter_number:empty {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
 }
 .woocommerce .grid-mode li.product-list .product-details .name {
   height: 50px;
@@ -1080,15 +1076,10 @@ span.wishlist_products_counter_number:empty {
   padding: 20px;
   border: solid 1px #EEE;
   height: 250px;
-  position: relative;
   width: 100%;
 }
 .product-thumb .helper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  display: inline-block;
   height: 100%;
   vertical-align: middle;
   text-align: center;
@@ -1101,6 +1092,7 @@ span.wishlist_products_counter_number:empty {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
 }
 
 .woocommerce ul.products li.product h3.name {
