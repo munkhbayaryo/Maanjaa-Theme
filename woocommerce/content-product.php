@@ -17,8 +17,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
+global $wpdb;
 global $product;
 global $premiumSellers;
+global $countriesOfSellers;
+
 // Ensure visibility.
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
@@ -31,7 +34,13 @@ if (count($premiumSellers) > 0) {
 		$is_special = true;
 	}
 }
-
+$countryOfSeller = null;
+if (count($countriesOfSellers) > 0) {
+	$searchedAuthor = searchForUserId(get_the_author_meta('ID'), $countriesOfSellers);
+	if ($searchedAuthor) {
+		$countryOfSeller = $searchedAuthor;
+	}
+}
 ?>
 
 <li <?php wc_product_class($is_special ? 'product-list paid clearfix' : 'product-list clearfix' , $product ); ?>>
@@ -42,7 +51,11 @@ if (count($premiumSellers) > 0) {
 					echo '<a href="'; the_permalink(); echo '">'; the_post_thumbnail('maanjaa-thumb'); echo '</a>';
 				echo '</span></div>';
 			} ?>
-
+			<?php 
+				if ($countryOfSeller) {
+					echo('<img src="https://www.countryflags.io/'. $countryOfSeller .'/shiny/64.png"/>');
+				}
+			?>
 			<div class="product-details">
 				<h3 class="name"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
 

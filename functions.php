@@ -365,7 +365,8 @@ add_action( 'woocommerce_before_shop_loop', 'custom_product_ordering', 10, 0 );
 
 function initCustomGlobalVariables () {
 	global $wpdb;
-	global $premiumSellers;
+  global $premiumSellers;
+  global $countriesOfSellers;
 
   $premiumSellers = [];
 	$premiumSellerId = 598;
@@ -377,6 +378,21 @@ function initCustomGlobalVariables () {
 			array_push($userIds, $value->user_id);
 		}
 	}
-	$premiumSellers = $userIds;
+  $premiumSellers = $userIds;
+
+  // init seller's countries
+  $countriesOfSellers = [];
+  $countriesOfSellers = $wpdb->get_results($wpdb->prepare(
+		"SELECT meta_value as country, user_id from wp_usermeta WHERE meta_key = '_wcfm_country' and meta_value != '' and meta_value is not null"));
 }
 add_action( 'after_setup_theme', 'initCustomGlobalVariables' );
+
+
+function searchForUserId($id, $array) {
+	foreach ($array as $key => $val) {
+		if ((int)$val->user_id === (int)$id) {
+			return $val->country;
+		}
+	}
+	return null;
+}
