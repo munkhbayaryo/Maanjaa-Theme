@@ -382,8 +382,9 @@ function initCustomGlobalVariables () {
 
   // init seller's countries
   $countriesOfSellers = [];
+  $sellerMetaCountryKey = '_wcfm_country';
   $countriesOfSellers = $wpdb->get_results($wpdb->prepare(
-		"SELECT meta_value as country, user_id from wp_usermeta WHERE meta_key = '_wcfm_country' and meta_value != '' and meta_value is not null"));
+		"SELECT meta_value as country, user_id from wp_usermeta WHERE meta_key = %s and meta_value != '' and meta_value is not null", $sellerMetaCountryKey));
 }
 add_action( 'after_setup_theme', 'initCustomGlobalVariables' );
 
