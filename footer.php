@@ -20,7 +20,7 @@
 				}
 			?>
 			<span class="copyright">
-				<?php echo esc_attr__('© 2020 IFL Inc. All rights reserved.','maanjaa'); ?>
+				<?php echo esc_attr__('© 2021 Maanjaa Company. All rights reserved.','maanjaa'); ?>
 			</span>
 		</div>
 	</footer>

@@ -74,7 +74,13 @@
     }
 }
 
-
+.flag-img {
+    position: absolute !important;
+    top: 5px;
+    right: 10px;
+    max-width: 26px !important;
+    z-index: 2;
+}
 
 .woocommerce .grid-mode li.product-list {
     .product-thumb {
