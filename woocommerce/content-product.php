@@ -48,9 +48,9 @@ if (count($countriesOfSellers) > 0) {
 		<div class="inner-left">
 			<?php if ( has_post_thumbnail() ) {
 				echo '<div class="product-thumb">'; woocommerce_show_product_loop_sale_flash(); 
-				if ($countryOfSeller) {
-					echo('<img src="https://www.countryflags.io/'. $countryOfSeller .'/shiny/64.png" class="flag-img" />');
-				}
+				// if ($countryOfSeller) {
+				// 	echo('<img src="https://www.countryflags.io/'. $countryOfSeller .'/shiny/64.png" class="flag-img" />');
+				// }
 				echo '<span class="helper">';
 					echo '<a href="'; the_permalink(); echo '">'; the_post_thumbnail('maanjaa-thumb'); echo '</a>';
 				echo '</span></div>';
